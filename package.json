@@ -1,0 +1,29 @@
+{
+    "name": "vesper-oas",
+    "version": "1.0.0",
+    "description": "oas",
+    "main": "lib/api.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rm -rf lib && npm run gen:sdk && tsc",
+        "gen:sdk": "java -jar openapi-generator-cli.jar generate -i specs/api.yaml -g typescript-node -o sdk"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ko1103/nighthawk-oas.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ko1103/nighthawk-oas/issues"
+    },
+    "homepage": "https://github.com/Ko1103/nighthawk-oas#readme",
+    "devDependencies": {
+        "@types/node": "10.0.0",
+        "husky": "^4.2.5",
+        "swagger-cli": "^4.0.4"
+    },
+    "dependencies": {
+        "request": "^2.88.2"
+    }
+}

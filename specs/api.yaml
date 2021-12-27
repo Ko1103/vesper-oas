@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: vesper api
+  version: 1.0.0
+paths:
+  '/ping':
+    get:
+      summary: Greets the user
+      x-exegesis-operationId: ping#get
+      x-exegesis-controller: pingController
+      parameters:
+        - description: The name of the user to greet.
+          name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: A greeting for the user.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - message
+                properties:
+                  message:
+                    type: string
