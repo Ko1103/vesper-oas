@@ -10,7 +10,7 @@ phases:
   pre_build:
     commands:
       - echo "Entered the pre_build phase..."
-      - export __OAS_VERSION=`/usr/local/bin/yq e '.info.version' specs/api.yaml`
+      - export __OAS_VERSION=`/usr/bin/yq e '.info.version' specs/api.yaml`
       - export __REGISTRY_URL=https://vesper-893536458831.d.codeartifact.ap-northeast-1.amazonaws.com/npm/vesper-api/
       - export __NAME='vesper-oas-api'
       - npm install
