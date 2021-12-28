@@ -2,12 +2,10 @@
     "name": "vesper-oas",
     "version": "1.0.0",
     "description": "oas",
-    "main": "lib/api.js",
     "scripts": {
-        "format-api": "swagger-cli validate ./specs/api.yaml",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rm -rf lib && npm run gen:sdk && tsc",
-        "gen:sdk": "java -jar openapi-generator-cli.jar generate -i specs/api.yaml -g typescript-node -o sdk"
+        "test-api": "swagger-cli validate ./specs/api.yaml",
+        "build": "npm run gen:openapi-yaml",
+        "gen:openapi-yaml": "rm -rf openapi-yaml && java -jar openapi-generator-cli.jar generate -i specs/api.yaml -g openapi-yaml -o openapi-yaml"
     },
     "repository": {
         "type": "git",
