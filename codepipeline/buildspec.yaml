@@ -24,7 +24,7 @@ phases:
       - cat ./package.json | jq --arg __NM $__NAME '.name = $__NM' > ./package.json.tmp
       - mv ./package.json.tmp ./package.json
         ## update version in package.json
-      - cat ./package.json | jq --arg VERSION $__OAS_VERSION '.version = $VERSION' > ./package.json.tmp
+      - cat ./package.json | jq --arg __VERSION $__OAS_VERSION '.version = $__VERSION' > ./package.json.tmp
       - mv ./package.json.tmp ./package.json
         ## update publish registry in package.json
       - cat package.json | jq --arg REGISTRY_URL $__REGISTRY_URL '.publishConfig.registry = $REGISTRY_URL' > ./package.json.tmp
