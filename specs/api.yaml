@@ -1,24 +1,43 @@
 openapi: 3.0.1
 info:
   title: vesper api
-  version: 1.0.0
+  version: 0.0.1
+
+servers:
+  - url: /v1
+
+tags:
+  - name: system
+    description: システム関連API
+
 paths:
   '/ping':
     get:
-      summary: Greets the user
-      x-exegesis-operationId: ping#get
-      x-exegesis-controller: pingController
-      parameters:
-        - description: The name of the user to greet.
-          name: name
-          in: query
-          required: true
-          schema:
-            type: string
+      summary: ping
+      x-exegesis-operationId: ping
+      x-exegesis-controller: ping
+      description: 死活監視
+      tags:
+        - system
       responses:
         200:
-          description: A greeting for the user.
+          description: OK
           content:
-            application/json:
+            text/plain:
+              schema:
+                type: string
+  '/ping/deep':
+    get:
+      summary: deep
+      x-exegesis-operationId: deep
+      x-exegesis-controller: ping
+      tags:
+        - system
+      description: 死活監視(dbまで確認)
+      responses:
+        200:
+          description: OK
+          content:
+            text/plain:
               schema:
                 type: string

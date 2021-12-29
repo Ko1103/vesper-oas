@@ -1,1 +1,1 @@
-npm run format-api && git add .
+npm run test-api && git add .
