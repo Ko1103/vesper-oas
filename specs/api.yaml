@@ -1,16 +1,34 @@
 openapi: 3.0.1
 info:
   title: vesper api
-  version: 0.0.1
+  version: 0.0.2
 
 servers:
   - url: /v1
 
 tags:
+  - name: users
+    description: ユーザ関連API
   - name: system
     description: システム関連API
 
 paths:
+  '/users':
+    get:
+      summary: get user list
+      x-exegesis-controller: users
+      x-exegesis-operationId: list
+      description: ユーザ一覧取得
+      tags:
+        - users
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: 'components/common.yaml#/components/schemas/UserList'
+
   '/ping':
     get:
       summary: ping

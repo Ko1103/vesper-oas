@@ -1,0 +1,27 @@
+openapi: 3.0.1
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: '3333333333333'
+        name:
+          type: string
+          example: 'Ko1103'
+
+    UserList:
+      type: object
+      properties:
+        totalCount:
+          type: number
+          example: 2
+        currentPage:
+          type: number
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
