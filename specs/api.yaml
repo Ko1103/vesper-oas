@@ -1,24 +1,82 @@
 openapi: 3.0.1
 info:
   title: vesper api
-  version: 0.0.2
+  version: 0.0.3
 
 servers:
   - url: /v1
 
 tags:
+  - name: questions
+    description: 質問関連API
   - name: users
     description: ユーザ関連API
   - name: system
     description: システム関連API
 
 paths:
+  '/questions':
+    get:
+      summary: get questions list
+      x-exegesis-controller: questions
+      x-exegesis-operationId: list
+      description: 質問一覧取得
+      tags:
+        - questions
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: 'components/common.yaml#/components/schemas/QuestionList'
+    post:
+      summary: create question
+      x-exegesis-controller: questions
+      x-exegesis-operationId: create
+      description: 質問作成
+      tags:
+        - questions
+      parameters:
+        - in: body
+          name: payload
+          required: true
+          schema:
+            $ref: 'components/common.yaml#/components/schemas/Question'
+      responses:
+        200:
+          description: OK
+
+  '/questions/{questionId}':
+    get:
+      summary: get questions list
+      x-exegesis-controller: questions
+      x-exegesis-operationId: list
+      description: 質問一覧取得
+      tags:
+        - questions
+      parameters:
+        - name: questionId
+          in: path
+          description: 質問ID
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: 'components/common.yaml#/components/schemas/Question'
+
+
   '/users':
     get:
       summary: get user list
       x-exegesis-controller: users
       x-exegesis-operationId: list
-      description: ユーザ一覧取得
+      description: ユーザ一ー覧取得
       tags:
         - users
       responses:

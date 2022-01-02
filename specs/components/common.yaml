@@ -2,6 +2,28 @@ openapi: 3.0.1
 
 components:
   schemas:
+    Question:
+      type: object
+      properties:
+        questionId:
+          type: string
+          example: '3333333333'
+        title:
+          type: string
+        body:
+          type: string
+        createdBy:
+          type: string
+
+    QuestionList:
+      allOf:
+        - $ref: '#/components/schemas/Pager'
+        - type: object
+          properties:
+            list:
+              type: array
+              items:
+                $ref: '#/components/schemas/Question'
     User:
       type: object
       properties:
@@ -13,6 +35,16 @@ components:
           example: 'Ko1103'
 
     UserList:
+      allOf:
+        - $ref: '#/components/schemas/Pager'
+        - type: object
+          properties:
+            list:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+
+    Pager:
       type: object
       properties:
         totalCount:
@@ -21,7 +53,3 @@ components:
         currentPage:
           type: number
           example: 1
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
