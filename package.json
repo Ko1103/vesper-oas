@@ -5,7 +5,8 @@
     "scripts": {
         "test-api": "swagger-cli validate ./specs/api.yaml",
         "build": "npm run gen:openapi-yaml",
-        "gen:openapi-yaml": "rm -rf openapi-yaml && java -jar openapi-generator-cli.jar generate -i specs/api.yaml -g openapi-yaml -o openapi-yaml"
+        "gen:openapi-yaml": "rm -rf openapi-yaml && java -jar openapi-generator-cli.jar generate -i specs/api.yaml -g openapi-yaml -o openapi-yaml",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
@@ -19,7 +20,7 @@
     "homepage": "https://github.com/Ko1103/nighthawk-oas#readme",
     "devDependencies": {
         "@types/node": "10.0.0",
-        "husky": "^4.2.5",
+        "husky": "^7.0.4",
         "swagger-cli": "^4.0.4"
     },
     "dependencies": {
