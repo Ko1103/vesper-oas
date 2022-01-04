@@ -5,6 +5,28 @@ info:
 
 components:
   schemas:
+    Answer:
+      type: object
+      properties:
+        answerId:
+          type: string
+        questionId:
+          type: string
+        body:
+          type: string
+        createdBy:
+          type: string
+
+    AnswerList:
+      allOf:
+        - $ref: '#/components/schemas/Pager'
+        - type: object
+          properties:
+            list:
+              type: array
+              items:
+                $ref: '#/components/schemas/Answer'
+
     Question:
       type: object
       properties:
