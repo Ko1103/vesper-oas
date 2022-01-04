@@ -37,12 +37,12 @@ paths:
       description: 質問作成
       tags:
         - questions
-      parameters:
-        - in: body
-          name: payload
-          required: true
-          schema:
-            $ref: 'components/common.yaml#/components/schemas/Question'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'components/common.yaml#/components/schemas/Question'
       responses:
         200:
           description: OK

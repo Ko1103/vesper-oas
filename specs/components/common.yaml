@@ -1,4 +1,7 @@
 openapi: 3.0.1
+info:
+  title: vesper api
+  version: 0.0.3
 
 components:
   schemas:
