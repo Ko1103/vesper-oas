@@ -2,7 +2,7 @@
 
 ## 🔰 Quick start
 
-install java
+Install Java and run this
 
 ```shell
 $ npm install
